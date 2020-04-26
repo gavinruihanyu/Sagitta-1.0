@@ -12,7 +12,7 @@ client.on('message', message => {
 
 })
 
-//Should I commit? I dont think me editiing on my side can affect you
+//hello
 
 
 
