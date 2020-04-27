@@ -13,7 +13,7 @@ client.on('message', message => {
 })
 
 
-
+look retard
 
 
 
