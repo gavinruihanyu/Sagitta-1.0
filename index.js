@@ -5,8 +5,8 @@ const client = new Discord.Client()
 
 // bot startup
 client.on('ready', () => {
+    client.user.setStatus("online");
     console.log('ready')
-
 })
 
 // command handler
@@ -20,3 +20,5 @@ client.on('message', message => {
 client.login(token).then(r => {
     console.log('Logged in')
 });
+
+
