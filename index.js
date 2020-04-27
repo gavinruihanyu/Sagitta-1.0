@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const ini = require('./ini.js')
+const {prefix , version, token} = require('./ini.js')
 
 const client = new Discord.Client()
 
@@ -11,13 +11,12 @@ client.on('ready', () => {
 
 // command handler
 client.on('message', message => {
-    if (message.author.bot) return;
-    if (message.channel.type === 'dm') return;
+    if (message.author.bot || message.channel.type === 'dm' || !message.content.startsWith(prefix)) return;
+
 
 
 })
-/*
-this will work
- */
 
-
+client.login(token).then(r => {
+    console.log('Logged in')
+});
