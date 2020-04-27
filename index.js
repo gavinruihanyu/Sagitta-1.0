@@ -12,10 +12,5 @@ client.on('message', message => {
 
 })
 /*
-Roderrick is massive videogame addict
+this will work
  */
-
-
-
-
-
