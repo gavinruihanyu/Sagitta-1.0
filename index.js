@@ -11,9 +11,11 @@ client.on('ready', () => {
 client.on('message', message => {
 
 })
+/*
+Roderrick is massive videogame addict
+ */
 
 
-look retard
 
 
 
