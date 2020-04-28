@@ -1,3 +1,10 @@
+const got = require('got');
+const {apis} = require('../ini.js')
+
 module.exports = (message, args) => {
-    message.reply('j')
+    if (!args.length) {
+        return message.reply('fucking stupid candy ass faggot')
+    }
+
+    message.reply(args[0])
 }
