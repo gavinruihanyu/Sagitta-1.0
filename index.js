@@ -15,6 +15,10 @@ client.on('ready', () => {
     client.user.setStatus("online");
     console.log('Sagitta is ready and online, awaiting orders...');
 })
+//bot login
+client.login(token).then(r => {
+    console.log('Sagitta is logged in.');
+});
 
 // add event
 client.on('guildMemberAdd', member => {
@@ -35,7 +39,7 @@ client.on('message', message => {
         const command = args.shift().toLowerCase()
 
         if (!client.commands.has(command)) {
-            message.reply('retard')
+            message.reply('Type |help for the list of commands. fag')
             return
         }
 
@@ -49,6 +53,3 @@ client.on('message', message => {
 })
 
 
-client.login(token).then(r => {
-    console.log('Sagitta is logged in.');
-});
