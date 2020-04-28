@@ -1,19 +1,20 @@
-const {prefix} = require('../ini.js')
+const {prefix} = require('../ini.js');
+const Discord = require('discord.js');
 //sets where output will be
-let helpText='';
-let introHelpText='These are the commands that Sagitta will recognize: ';
+let helpTextTail='';
+let helpTextHead="Saggita's capabilities:";
 
 //list of commands
 const listOfCommands=[
     prefix+"help",
-    prefix+"play songname",
+    prefix+'play "songname",',
     prefix+"stop",
 
 ];
 
 //list of command sub-array (tells what each command does)
 const listOfCommandsDefinition=[
-    "Sagitta will direct message you the list of commands it will respond to.",
+    "Sagitta's capabilities",
     "Plays a song from youtube",
     "Stops playback of all songs"
 ];
@@ -21,11 +22,18 @@ const listOfCommandsDefinition=[
 //function for help
 commandLister=()=> {
     for (let i = 0; i < (listOfCommands.length); i ++) {
-        helpText+=(">"+listOfCommands[i] + ": " + listOfCommandsDefinition[i] + "\n");
+        helpTextTail+=(listOfCommands[i] + ": " + listOfCommandsDefinition[i] + "\n");
     }
-
 }
 commandLister()
+
+const helpTextMsg = new Discord.MessageEmbed()
+    .setTitle("Sagitta 1.0")
+    .addField(helpTextHead, helpTextTail);
+const helpReply = new Discord.MessageEmbed()
+    .setTitle("Sagitta's command dictionary has been sent to your DM's!");
+
 module.exports = (message)=>{
-    message.author.send(introHelpText+"\n"+helpText);
+    message.reply(helpReply);
+    message.author.send(helpTextMsg);
 }
