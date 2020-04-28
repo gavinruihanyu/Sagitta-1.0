@@ -13,7 +13,7 @@ let errors = []
 // bot startup
 client.on('ready', () => {
     client.user.setStatus("online");
-    console.log('Sagitta is ready and online, awaiting ');
+    console.log('Sagitta is ready and online, awaiting orders...');
 })
 
 // add event

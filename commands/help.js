@@ -1,5 +1,7 @@
+//todo: Basic Bare Bone Minimum of help cmd
 // locates prefix version and token
 const {prefix , version, token} = require('../ini.js')
+
 //list of commands
 const listOfCommands=[prefix+"help",prefix+"play", prefix+"stop"];
 
@@ -7,22 +9,16 @@ const listOfCommands=[prefix+"help",prefix+"play", prefix+"stop"];
 const listOfCommandsDefinition=["Hello","hello","hello"];
 
 //list of command usage
-const listOfCommandUseage=[1,2,3];
+const listOfCommandUsage=[1,2,3];
 
 //function for help
 commandLister=()=> {
-    for (i=0; i<=listOfCommands.length;i++) {
-        msg.reply(listOfCommands[i]+": "+listOfCommandsDefinition[i]);
-        console.log((listOfCommands[i]+": "+listOfCommandsDefinition[i]));
+    for (let loopNum=0; loopNum<=listOfCommands.length;loopNum++) {
+        message.author.send(listOfCommands[loopNum]+": "+listOfCommandsDefinition[loopNum]+listOfCommandUsage)[loopNum];
+        console.log((listOfCommands[loopNum]+": "+listOfCommandsDefinition[loopNum]+listOfCommandUsage)[loopNum]);
     }
 
 }
-
-//command handler for )help
-client.on('message', message => {
-    if (message.author.bot || message.channel.type === 'dm' || !message.content.startsWith(prefix)) return;
-    if (message.content===prefix+"help"){
-     commandLister();
-        }
-
-})
+module.exports = (message, args)=>{
+    message.reply(commandLister)
+}
