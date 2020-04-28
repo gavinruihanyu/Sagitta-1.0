@@ -1,34 +1,31 @@
-
-const {prefix , version, token} = require('../ini.js')
+const {prefix} = require('../ini.js')
+//sets where output will be
+let helpText='';
+let introHelpText='These are the commands that Sagitta will recognize: ';
 
 //list of commands
 const listOfCommands=[
     prefix+"help",
-    prefix+"play",
+    prefix+"play songname",
     prefix+"stop",
 
 ];
 
 //list of command sub-array (tells what each command does)
 const listOfCommandsDefinition=[
-    "Hello",
-    "hello",
-    "hello"
+    "Sagitta will direct message you the list of commands it will respond to.",
+    "Plays a song from youtube",
+    "Stops playback of all songs"
 ];
-
-//list of command usage
-const listOfCommandUsage=[
-    1,
-    2,
-    3];
 
 //function for help
 commandLister=()=> {
     for (let i = 0; i < (listOfCommands.length); i ++) {
-        return(listOfCommands[i] + ": " + listOfCommandsDefinition[i] + listOfCommandUsage[i]);
+        helpText+=(">"+listOfCommands[i] + ": " + listOfCommandsDefinition[i] + "\n");
     }
 
 }
-module.exports = (message, args)=>{
-    message.author.send(commandLister());
+commandLister()
+module.exports = (message)=>{
+    message.author.send(introHelpText+"\n"+helpText);
 }
