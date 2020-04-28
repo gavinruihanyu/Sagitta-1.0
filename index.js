@@ -3,7 +3,7 @@
 //requires discord.js from discord.js files
 const Discord = require('discord.js')
 
-//not too sure what this does
+//locates and sets prefix, version and token
 const {prefix , version, token} = require('./ini.js')
 
 //creates Sagitta bot
@@ -19,21 +19,12 @@ client.login(token).then(r => {
     console.log('Sagitta is logged in.');
 });
 
-
-
 // command handler
 client.on('message', message => {
     if (message.author.bot || message.channel.type === 'dm' || !message.content.startsWith(prefix)) return;
-    else{
-        if (message.content){
-
-        }
-    }
-
-
-
 })
 
+//TODO: refrence help.js thingy and fix ini.js locator
 
 
 
