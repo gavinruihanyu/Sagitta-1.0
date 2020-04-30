@@ -65,7 +65,6 @@ client.on('message', message => {
                 .setTitle('Sagitta '+version+' is now deactivating.');
             message.author.send(shutdownDialogue).then(shutdownSeq => {
                 client.destroy();
-                client.destroy();
             })
             console.log('Sagitta has been shut down.')
         }
