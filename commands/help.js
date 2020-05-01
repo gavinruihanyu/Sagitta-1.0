@@ -7,7 +7,7 @@ let helpTextHead="Saggita's capabilities:";
 //list of commands
 const listOfCommands=[
     prefix+"help",
-    prefix+'play "songname",',
+    prefix+'play "songname"',
     prefix+"stop",
 
 ];
@@ -29,11 +29,13 @@ commandLister()
 
 const helpTextMsg = new Discord.MessageEmbed()
     .setTitle("Sagitta 1.0")
-    .addField(helpTextHead, helpTextTail);
+    .addField(helpTextHead,helpTextTail)
+    .setColor(0xa9a9a9);
 const helpReply = new Discord.MessageEmbed()
-    .setTitle("Sagitta's command dictionary has been sent to your DM's!");
+    .setColor(0xa9a9a9)
+    .setTitle("Sagitta's command dictionary has\nbeen sent to your DM's!");
 
 module.exports = (message)=>{
-    message.reply(helpReply);
+    message.react('✔');
     message.author.send(helpTextMsg);
 }
