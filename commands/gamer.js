@@ -1,13 +1,17 @@
 const got = require('got');
 const {apis} = require('../ini.js')
+const embed = require('./embed.js')
+
+const site = 'https://na1.api.riotgames.com'
 
 league = async arg => {
     try {
-        const response1 = await got(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${arg}?api_key=${apis['riot-api']}`)
+        const response1 = await got(`${site}/lol/summoner/v4/summoners/by-name/${arg}?api_key=${apis['riot-api']}`)
 
         const summonerID = JSON.parse(response1.body).id
+        console.log(response1)
 
-        const response = await got(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerID}?api_key=${apis['riot-api']}`)
+        const response = await got(`${site}/lol/league/v4/entries/by-summoner/${summonerID}?api_key=${apis['riot-api']}`)
         console.log(JSON.parse((response.body)))
         return "Found"
     } catch (err) {
